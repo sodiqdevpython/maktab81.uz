@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-5 py-5">
+{% block body %}
+        <hr>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Ism Familiya</th>
+                <th scope="col">Savollar soni</th>
+                <th scope="col">To'g'ri javoblar</th>
+                <th scope="col">Ball</th>
+                <th scope="col">Vaqt</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for result in results_base %}
+                <tr>
+                    <td>{{ result.user.first_name.title }} {{ result.user.last_name.title }}</td>
+                    <td>{{ result.total_question }}</td>
+                    <td>{{ result.corrent_question }}</td>
+                    <td>{{ result.total }}</td>
+                    <th scope="row">{{ result.create_at|date:'Y-m-d H:i' }}</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
+</div>
+{% endblock content %}

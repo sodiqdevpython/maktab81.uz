@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5 pt-5">
+      <div class="card mb-3 shadow">
+        <img style="max-height: 500px;" src="{{ object.image_news.url }}"  class="card-img-top" alt="Kechirasiz sizning brauzeringizda muammo bor yoki ushbu rasm admin tomonidan o'chirib yuborilgan">
+        <div class="card-body">
+          <h5 class="card-title">{{ object.title }}</h5>
+          <p class="card-text">{{ object.body|safe }}<br><br><small class="float-start">{{ object.date }}</small> <small class="float-end">{{ user.username }} ({{ user.first_name.title }} {{ user.last_name.title }})</small></p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

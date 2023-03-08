@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-5 pt-3">
+     {% block body %}
+        <div class="container py-5 mt-5">
+            <div class="alert alert-success shadow" role="alert">
+              <h4 class="alert-heading">Sizning test natijangiz !</h4>
+              <p>Testlar soni: {{ total_question }}</p>
+                <p>To'g'ri javoblar soni: {{ correct }}</p>
+                <p>Noto'g'ri javoblar soni: {{ wrong }}</p>
+                <p>Siz yig'gan balingiz: {{ total }}% </p>
+              <hr>
+              <p class="mb-0">Sizni tizimdagi o'rningizni ushbu havola orqali bilishingiz mumkin <a href="{% url 'qiuz' %}">Mening reytingim</a></p>
+            </div>
+        </div>
+    {% endblock %}
+</div>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.author.first_name.title }}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <form class="container mt-3" method="POST">
+            {% csrf_token %}
+          <h3>{{ post.title }}</h3>
+          <strong>Do you really want to delete the post ?</strong>
+          <input type="submit" value="Delete">
+        </form>
+    {% else %}
+        <p>O'zincha saytga buzib kirmoqchi bo'layabsanmi iloji yo'q hali meni darajamga yetishinga million yil borga o'xshayabdi men har qanday harakatingni oldindan o'ylab qo'yganman !</p>
+    {% endif %}
+{% else %}
+<p>You have not access !</p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<form class="container mt-5" method="POST">
+    <h2>Ro'yxatdan o'tish</h2>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Foydalanuvchi nomi</label>
+        <input name="username" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Ism</label>
+        <input name="first_name" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Familiya</label>
+        <input name="last_name" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Parol</label>
+        <input name="password1" type="password" class="form-control">
+        <ul>
+            <li>Parolingiz ism, familiya yoki foydalanuvchi nomingiz bilan o'xshash bo'lmasligi kerak !</li>
+            <li>Kamida 8 ta belgidan iborat bo'lsin, faqat raqamlardan iborat bo'lmasin</li>
+            <li>Parolingiz juda oddiy bo'lmasin masalan: <del>12345678</del></li>
+        </ul>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Parolni qaytaring</label>
+        <input name="password2" type="password" class="form-control">
+        <span>Yuqorida kiritilgan parolni takrorlang !</span>
+    </div>
+    <input type="submit" class="btn btn-outline-success" value="Ro'yxatdab o'tish">
+</form>
+
+{% endblock content %}

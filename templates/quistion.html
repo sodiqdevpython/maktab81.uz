@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+{% block body %}
+<div class="container shadow pt-3 px-5 pb-5 mt-5">
+    <h3>Test</h3>
+    <form method="post">
+        {% csrf_token %}
+        {% for q in quistions %}
+            <h6>{{ q.name }}</h6>
+            {% if q.image_question %}
+                <img class="rounded img-fluid" src="{{ q.image_question.url }}" alt=""><br>
+            {% endif %}
+                {% for answer in answers %}
+                    {% if q.id == answer.question.id %}
+                        <label><input style="margin-bottom: 10px;" type="radio" name="{{ q.name }}" value="{{ answer.is_right }}" value="False" required >    {{ answer.name }}</label>
+                        <br>
+                    {% endif %}
+                {% endfor %}
+                <hr>
+        {% endfor %}
+        <button class="btn btn-outline-success shadow" type="submit">Natijani ko'rish</button>
+    </form>
+</div>
+
+{% endblock %}
+{% endblock content %}

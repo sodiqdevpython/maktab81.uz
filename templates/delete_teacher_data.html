@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.author.first_name.title }}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.is_staff %}
+        <form class="container mt-3" method="POST">
+            {% csrf_token %}
+          <strong class="lead">Rostdan ham ushbu o'qituchi haqidagi ma'lumotlarni o'chirmoqchimisiz.</strong>
+            <br>
+          <input class="btn btn-outline-danger shadow mt-3" type="submit" value="O'chirish">
+        </form>
+    {% else %}
+        <div class="mt-5">
+            <div class="alert alert-danger mt-5 container" role="alert">
+              Sizga mumkin emas !
+            </div>
+        </div>
+    {% endif %}
+{% else %}
+<div class="mt-5">
+    <div class="alert alert-warning mt-5 container" role="alert">
+      Iltimos oldin ro'yxatdan o'ting !
+    </div>
+</div>
+{% endif %}
+{% endblock content %}

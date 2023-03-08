@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.author.first_name.title }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+      <div class="card mb-3 shadow">
+        <img height="300px;"; src="{{ i.image_news.url }}"  class="card-img-top" alt="Kechirasiz sizning brauzeringizda muammo bor yoki ushbu rasm admin tomonidan o'chirib yuborilgan">
+        <div class="card-body">
+          <h5 class="card-title">{{ i.title }}</h5>
+          <p class="card-text">{{ i.body|safe }} ... <br><a href="{% url 'home' %}">ko'proq o'qish</a> <br><small class="float-start">{{ i.date }}</small> <small class="float-end">{{ i.author.username.title }} ({{ i.author.first_name.title }} {{ i.author.last_name.title }})</small></p>
+        </div>
+      </div>
+  </div>
+{% endblock content %}

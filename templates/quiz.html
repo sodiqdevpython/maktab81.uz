@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="border-radius: 30px;" class="container-fluid shadow py-5 mt-5">
+    <h2>Testlar ro'yxati</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+        {% for quiz in quizs %}
+            <tbody>
+                <tr>
+                  <td>{{ quiz.title }}</td>
+                    <td><a target="_blank" href="{% url 'result_detail' quiz.id %}">Test natijalari</a></td>
+                    {% if quiz.tugatish %}
+                        <td><!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-danger shadow" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  To'xtatilgan
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Mumkin emas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          Kechirasiz ushbu test admin tomonidan to'xtatilgan ! <br> <div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+      </div>
+    </div>
+  </div>
+</div></td>
+                    {% else %}
+                        <td><a href="{% url 'quistion' quiz.id %}" class="btn btn-outline-primary">Qatnashish</a></td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

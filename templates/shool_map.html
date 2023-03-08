@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 py-5">
+    <div class="row">
+        {% for i in object_list %}
+            <div class="card shadow mx-3 my-3" style="width: 18rem;">
+                <a href="{{ i.url_location }}"><img src="{{ i.img_location.url }}" class="card-img-top " alt="Sizning brauzeringizda muammo bor"></a>
+              <div class="card-body">
+                <h5 class="card-title">{{ i.title }}</h5>
+                <a href="{{ i.url_location }}" class="btn btn-outline-success">360<sup>°</sup> da ko'rish</a>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
