@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'viewschool',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
