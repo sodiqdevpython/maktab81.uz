@@ -254,6 +254,12 @@ background: linear-gradient(0deg, rgba(35,79,109,0.3785889355742297) 0%, rgba(69
 @media (max-width: 767px){
 
 }
+@media only screen and (max-width: 576px){
+    .corusel_res{
+      max-height: 300px;
+      margin-top: 50px;
+     }
+}
     </style>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
@@ -289,7 +295,7 @@ background: linear-gradient(0deg, rgba(35,79,109,0.3785889355742297) 0%, rgba(69
           <a class="nav-link" href="{% url 'qiuz' %}">Testlar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://maktab81c.up.railway.app/">Olimpiadalar</a>
+          <a class="nav-link" href="http://samshmaktab81-test.tilda.ws/">Olimpiadalar</a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item dropdown">

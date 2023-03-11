@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxLengthValidator
 
 class TopWorkers(models.Model):
     kasbi = models.CharField(max_length=100, verbose_name="Kasbi masalan: Direktor")
@@ -21,3 +22,23 @@ class SchoolData(models.Model):
     class Meta:
         verbose_name = "Statistika"
         verbose_name_plural = "Maktab statistikasi"
+
+class MainSlider(models.Model):
+    slide_title = models.CharField(max_length=60, verbose_name="slayd mavzusi: ")
+    slide_body = models.CharField(max_length=40, verbose_name="slayd tektstini kiriting: ")
+    slide_img = models.ImageField(upload_to='images/', verbose_name="slaydga rasm qo'ying: ")
+    def __str__(self):
+        return self.slide_title
+    class Meta:
+        verbose_name = "Slayder qo'shish"
+        verbose_name_plural = "Slayder qo'shish"
+
+class MoreInformation(models.Model):
+    data_title = models.CharField(max_length=30, verbose_name="Ma'lumot mavzusi: ")
+    data_body = models.TextField(verbose_name="Ma'lumot haida to'liq xabar:", validators=[MaxLengthValidator(1000, message="Xato sizning kiritgan ma'lumotlaringiz 1000 ta belgidan oshib ketdi kamaytiring bo'lmasa bu xato sayt dizayniga ta'sir qiladi")])
+    data_image = models.ImageField(upload_to='images/', verbose_name="Ma'lumot haqida rasm kiriting")
+    def __str__(self):
+        return self.data_title
+    class Meta:
+        verbose_name = "Saytga ma'lumot qo'shish"
+        verbose_name_plural = "Sayt ma'lumotlari"
