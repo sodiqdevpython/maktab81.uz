@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-nh=!u8_7h)i^k)f_iomz!guxy(59gr8+*qz6ce#d^+f(=&1!dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['207.154.232.54']
 
 
 # Application definition
@@ -83,8 +83,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'namuna',
+        'USER': 'sodiq',
+        'PASSWORD': 'sodiq',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -122,14 +126,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+import os
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 #
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),    
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
