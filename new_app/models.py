@@ -17,21 +17,9 @@ class TopWorkers(models.Model):
 class SchoolData(models.Model):
     pupils = models.CharField(max_length=50, verbose_name="O'quvchilar soni")
     teachers = models.CharField(max_length=50, verbose_name="O'qituvchilar soni")
-    ishchi = models.CharField(max_length=50, verbose_name="Jami ishchilar soni", help_text="(maktab direktori, qorovul va boshqa maktabda ishlaydigan hamma)")
-
     class Meta:
         verbose_name = "Statistika"
         verbose_name_plural = "Maktab statistikasi"
-
-class MainSlider(models.Model):
-    slide_title = models.CharField(max_length=60, verbose_name="slayd mavzusi: ")
-    slide_body = models.CharField(max_length=40, verbose_name="slayd tektstini kiriting: ")
-    slide_img = models.ImageField(upload_to='images/', verbose_name="slaydga rasm qo'ying: ")
-    def __str__(self):
-        return self.slide_title
-    class Meta:
-        verbose_name = "Slayder qo'shish"
-        verbose_name_plural = "Slayder qo'shish"
 
 class MoreInformation(models.Model):
     data_title = models.CharField(max_length=30, verbose_name="Ma'lumot mavzusi: ")
@@ -42,3 +30,19 @@ class MoreInformation(models.Model):
     class Meta:
         verbose_name = "Saytga ma'lumot qo'shish"
         verbose_name_plural = "Sayt ma'lumotlari"
+
+
+class SchoolContact(models.Model):
+    school_tel = models.CharField(max_length=50,verbose_name="Maktab telefon raqami: ")
+    school_email = models.CharField(max_length=50, verbose_name="Maktab emaili: ")
+    school_tme = models.URLField(verbose_name="Telegram url: ", help_text="Bog'lanish uchun telegram manzil url ini kiriting")
+    school_youtube = models.URLField(verbose_name="YouTube url: ", help_text="YouTube url manzilini kiriting")
+    school_facebook = models.URLField(verbose_name="Facebook url: ", help_text="Facebook url manzilini kiriting")
+    school_instagram = models.URLField(verbose_name="Instagram url: ", help_text="Instagram url manzilini kiriting")
+    
+    def __str__(self):
+        return self.school_tel
+    
+    class Meta:
+        verbose_name = "Bog'lanish uchun"
+        verbose_name_plural = "Bog'lanish uchun"

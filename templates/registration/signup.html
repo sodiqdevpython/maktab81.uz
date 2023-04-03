@@ -2,11 +2,11 @@
 
 {% block content %}
 <br>
-<form class="container mt-5" method="POST">
+<form class="container mt-5 pt-5" method="POST">
     <h2>Ro'yxatdan o'tish</h2>
     {% csrf_token %}
     <div class="mb-3">
-        <label class="form-label">Foydalanuvchi nomi</label>
+        <label class="form-label">Foydalanuvchi nomi (qo'shib yozilsin masalan: sodiq2005)</label>
         <input name="username" type="text" class="form-control">
     </div>
     <div class="mb-3">

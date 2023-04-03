@@ -6,11 +6,12 @@ from django.views.generic import ListView, DetailView
 class NewsView(ListView):
     model = News
     template_name = 'news.html'
+    ordering = ['-id']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
-
+    
 class DetailNewsView(DetailView):
     model = News
     template_name = 'article_detail.html'

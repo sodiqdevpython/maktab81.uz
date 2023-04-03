@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nh=!u8_7h)i^k)f_iomz!guxy(59gr8+*qz6ce#d^+f(=&1!dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False 
 
 ALLOWED_HOSTS = ['134.122.82.97','www.samshmaktab81.uz','samshmaktab81.uz']
-
 
 # Application definition
 
@@ -93,6 +92,7 @@ DATABASES = {
 }
 
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -126,26 +126,35 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+# import os
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# #
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),    
+# ]
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "staticfiles",
+# ]
+
+
+#              Static problem 135 line to 147
+
 import os
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-#
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),    
+    os.path.join(BASE_DIR, 'static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
-STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles",
-]
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
 # )
-
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type

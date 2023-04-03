@@ -1,9 +1,13 @@
 from django.shortcuts import render
-from .models import SchoolData, TopWorkers,MainSlider, MoreInformation
+from .models import SchoolData, TopWorkers, MoreInformation, SchoolContact
+from news.models import News
+from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
+    news = News.objects.order_by('-id')[:3]
     worker = TopWorkers.objects.all()
     school_data = SchoolData.objects.all()
-    main_slider = MainSlider.objects.all()
     data_about = MoreInformation.objects.all()
-    return render(request, 'home.html', {'worker': worker, 'school_data': school_data, 'main_slider': main_slider, 'data_about': data_about})
+    total_users = User.objects.all().count()
+    contact = SchoolContact.objects.all()[0]
+    return render(request, 'home.html', {'worker': worker, 'school_data': school_data,'data_about': data_about, 'total_users': total_users, 'contact': contact, 'news': news})

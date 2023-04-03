@@ -2,12 +2,12 @@
 
 {% block content %}
 {% for i in object_list %}
-  <div class="container mt-5 py-3">
+  <div class="container mt-5 pt-5 wow zoomIn" data-wow-delay="0.5s">
       <div class="card mb-3 shadow">
-        <img style="max-height:500px;" src="{{ i.image_news.url }}"  class="card-img-top" alt="Kechirasiz sizning brauzeringizda muammo bor yoki ushbu rasm admin tomonidan o'chirib yuborilgan">
+        <img style="max-height:500px;" src="{{ i.image_news.url }}" class="card-img-top" alt="Kechirasiz sizning brauzeringizda muammo bor yoki ushbu rasm admin tomonidan o'chirib yuborilgan">
         <div class="card-body">
           <h5 class="card-title">{{ i.title }}</h5>
-          <p class="card-text">{{ i.body|safe|slice:100 }} ... <br><a href="{% url 'news_detail' i.pk %}">ko'proq o'qish</a> <br><small class="float-start">{{ i.date }}</small> <small class="float-end">{{ i.author.username.title }} ({{ i.author.first_name.title }} {{ i.author.last_name.title }})</small></p>
+          <p class="card-text">{{ i.body|safe|slice:100 }} ... <br><a href="{% url 'news_detail' i.pk %}">ko'proq o'qish </a>. . . <br><small class="float-start">{{ i.date }}</small></p>
         </div>
       </div>
   </div>

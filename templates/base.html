@@ -1,21 +1,32 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.108.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
       <title>{% block title %}Samarqand shahar 81-maktab{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="https://png.pngtree.com/element_our/png_detail/20181129/male-student-icon-png_251938.jpg" sizes="32x32" type="image/png">
-    <link href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="manifest" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/manifest.json">
-    <link href="https://getbootstrap.com/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
-    <link href="https://getbootstrap.com/docs/5.3/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#712cf9">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <meta name="google-site-verification" content="4UvhwaJfyhShVa2QuisJIMmXJW781HIpmIIHpbNOFkA" />
   </head>
       <style>
       .bd-placeholder-img {
@@ -250,201 +261,155 @@ background: radial-gradient(to bottom left, #23EC55, #2D51C1);
  background: rgb(35,79,109);
 background: linear-gradient(0deg, rgba(35,79,109,0.3785889355742297) 0%, rgba(69,95,113,1) 100%);
 }
-}
-@media (max-width: 767px){
-
-}
-@media only screen and (max-width: 576px){
-    .corusel_res{
-      max-height: 300px;
-      margin-top: 50px;
-     }
-}
     </style>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{% url 'home' %}">
-      <div class="wave">
-        <span style="--item:1">8</span>
-        <span style="--item:2">1</span>
-        <span style="--item:3">-</span>
-        <span style="--item:4">m</span>
-        <span style="--item:5">a</span>
-        <span style="--item:6">k</span>
-        <span style="--item:7">t</span>
-        <span style="--item:8">a</span>
-        <span style="--item:9">b</span>
-      </div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'map' %}">Maktabning ko'rinishi 360<sup>°</sup></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{% url 'news' %}">Yangiliklar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'teacher_info' %}">O'qituvchilar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'qiuz' %}">Testlar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="http://samshmaktab81-test.tilda.ws/">Olimpiadalar</a>
-        </li>
-        {% if user.is_authenticated %}
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{ user.username.title }}
-              </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">{{ user.username.title }}</a></li>
-                  {% if user.is_staff %}
-                    <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin paneli</a></li>
-                  {% endif %}
-                  <li><a class="dropdown-item" href="{% url 'logout' %}">Chiqish</a></li>
-                </ul>
-            </li>
-        {% else %}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Ro'yxatdan o'tish
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'login' %}">Kirish</a></li>
-              <li><a class="dropdown-item" href="{% url 'signup' %}">Ro'yxatdan o'tish</a></li>
-            </ul>
-          </li>
-        {% endif %}
-        </li>
-      </ul>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner"></div>
     </div>
-  </div>
+  <!-- Spinner End -->
+  <nav style="background-color: #091E3E;" class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+    {% if user.is_authenticated %}
+      <a href="{% url 'home' %}" class="navbar-brand p-0">
+        <h5 style="color: white;" class="m-0"><i class="fa fa-user-tie me-2"></i>{{ user.first_name }}</h5>
+      </a>
+    {% else %}
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <div style="color: white;" class="wave">
+          <span style="--item:1">8</span>
+          <span style="--item:2">1</span>
+          <span style="--item:3">-</span>
+          <span style="--item:4">M</span>
+          <span style="--item:5">A</span>
+          <span style="--item:6">K</span>
+          <span style="--item:7">T</span>
+          <span style="--item:8">A</span>
+          <span style="--item:9">B</span>
+        </div>
+      </a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto py-0">
+          <a style="color: white;" href="{% url 'map' %}" class="nav-item nav-link">Maktabning ko'rinishi</a>
+          <a style="color: white;" href="{% url 'news' %}" class="nav-item nav-link">Yangiliklar</a>
+          <a style="color: white;" href="{% url 'teacher_info' %}" class="nav-item nav-link">O'qituvchilar</a>
+          <a style="color: white;" href="{% url 'staffs' %}" class="nav-item nav-link">Maktab raxbariyati</a>
+          <a style="color: white;" href="{% url 'pupils' %}" class="nav-item nav-link">Iqtidorli o'quvchilar</a>
+          <a style="color: white;" href="{% url 'qiuz' %}" class="nav-item nav-link">Testlar</a>
+          
+          {% if user.is_staff %}
+            <a style="color: white;" class="nav-item nav-link" href="{% url 'admin:index' %}">Admin paneli</a>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <a style="color: white;" class="nav-item nav-link" href="{% url 'logout' %}">Chiqish</a>
+          {% else %}
+          <a style="color: white;" class="nav-item nav-link" href="{% url 'login' %}">Kirish</a>
+          <a style="color: white;" class="nav-item nav-link" href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+          {% endif %}
+          
+      </div>
+</div>
+
 </nav>
+  <!-- Topbar End -->
+  
     {% block content %}
     {% endblock content %}
-    <div class="container-fluid mt-5 shadow">
 
-  <!-- Footer -->
-  <footer
-          class="text-center text-lg-end text-white"
-          style="background-color: #1c2331"
-          >
-    <!-- Section: Social media -->
-      <!-- Left -->
-      <!-- Left -->
 
-      <!-- Right -->
-      <div>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="text-white me-4">
-          <i class="fab fa-github"></i>
-        </a>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+          <div class="row gx-5">
+              <div class="pt-3 col-lg-4 col-md-6 footer-about">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1041.8806158315494!2d66.93655736649832!3d39.718732403379825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f4d1765336511c7%3A0xf65fb541e6f84f24!2z0JDQvNGA0LDQutGD0LvQvtCyINCU0LDQvNC40YA!5e1!3m2!1sen!2s!4v1680460184498!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="col-lg-8 col-md-6">
+                  <div class="row gx-5">
+                      <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                              <h3 class="text-light mb-0">Bog'lanish uchun</h3>
+                          </div>
+                          <div class="d-flex mb-2">
+                              <i class="bi bi-geo-alt text-primary me-2"></i>
+                              <p class="mb-0"><a href="https://goo.gl/maps/V7Mz3w7wy5dR2zPY7">Samarqand shahar</a></p>
+                          </div>
+                          <div class="d-flex mb-2">
+                              <i class="bi bi-telegram text-primary me-2"></i>
+                              <p class="mb-0"><a href="{{ contact.school_tme }}">Telegram</a></p>
+                          </div>
+                          <div class="d-flex mb-2">
+                              <i class="bi bi-telephone text-primary me-2"></i>
+                              <p class="mb-0"><a href="tel:{{ contact.school_tel }}">{{ contact.school_tel }}</a></p>
+                          </div>
+                          <div class="d-flex mt-4">
+                              <a class="btn btn-primary btn-square me-2" href="{{ contact.school_facebook }}"><i class="fab fa-facebook-f fw-normal"></i></a>
+                              <a class="btn btn-primary btn-square me-2" href="{{ contact.school_youtube }}"><i class="fab fa-youtube fw-normal"></i></a>
+                              <a class="btn btn-primary btn-square me-2" href="{{ contact.school_tme }}"><i class="fab fa-telegram fw-normal"></i></a>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                              <h3 class="text-light mb-0">Foydali havolalar</h3>
+                          </div>
+                          <div class="link-animated d-flex flex-column justify-content-start">
+                              <a class="text-light mb-2" href="{% url 'home' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Asosiy sahifa</a>
+                              <a class="text-light mb-2" href="{% url 'map' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Maktab ko'rinishi</a>
+                              <a class="text-light mb-2" href="{% url 'news' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Yangiliklar</a>
+                              <a class="text-light mb-2" href="{% url 'teacher_info' %}"><i class="bi bi-arrow-right text-primary me-2"></i>O'qituvchilar</a>
+                              <a class="text-light mb-2" href="{% url 'staffs' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Maktab raxbariyati</a>
+                              <a class="text-light mb-2" href="{% url 'home' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Iqtidorli o'quvchilar</a>
+                              <a class="text-light mb-2" href="{% url 'qiuz' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Testlar</a>
+                              <a class="text-light" href="https://abt.uz/university"><i class="bi bi-arrow-right text-primary me-2"></i>Oliygohlar</a>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+                              <h3 class="text-light mb-0">Fanlar</h3>
+                          </div>
+                          <div class="link-animated d-flex flex-column justify-content-start">
+                              <a class="text-light mb-2" href="https://abt.uz/matematika-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Matematika</a>
+                              <a class="text-light mb-2" href="https://abt.uz/fizika-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Fizika</a>
+                              <a class="text-light mb-2" href="https://abt.uz/ingliz-tili-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Ingiliz tili</a>
+                              <a class="text-light mb-2" href="https://abt.uz/biologiya-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Biologiya</a>
+                              <a class="text-light mb-2" href="https://abt.uz/kimyo-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Kimyo</a>
+                              <a class="text-light" href="https://abt.uz/tarix-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Tarix</a>
+                              <a class="text-light" href="https://abt.uz/rus-tili-va-adabiyoti-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>Rus tili</a>
+                              <a class="text-light" href="https://abt.uz/o-zbek-tili-va-adabiyoti-mavzulari"><i class="bi bi-arrow-right text-primary me-2"></i>O'zbek tili</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold">Samarqand shahar 81-maktab</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p>
-              Ushbu sayt Samarqand shahar 81-umumiy o'rta ta'lim maktabiga tegishli
-            </p>
+  </div>
+  <div class="container-fluid text-white" style="background: #061429;">
+      <div class="container text-center">
+          <div class="row justify-content-end">
+              <div class="col-lg-8 col-md-6">
+                  <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                      <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">samshmaktab81.uz</a>. Barcha huquqlar himoyalangan. </p>
+                  </div>
+              </div>
           </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Sayt xaritasi</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p>
-              <a href="{% url 'qiuz' %}" class="text-white">Fan olimpiadalari</a>
-            </p>
-            <p>
-              <a href="{% url 'news' %}" class="text-white">Oxirgi yangiliklar</a>
-            </p>
-            <p>
-              <a href="{% url 'teacher_info' %}" class="text-white">O'qituvchilar ro'yxati</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Foydali havolalar</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p>
-              <a href="https://sodiq7898.pythonanywhere.com/" class="text-white">Olimpiada</a>
-            </p>
-            <p>
-              <a href="http://sodiqoydinov.tilda.ws/" class="text-white">DASTURCHI</a>
-            </p>
-            <p>
-              <a href="http://sodiqoydinov.tilda.ws/" class="text-white">Murojat uchun</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Aloqa uchun</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p><i class="fas fa-home mr-3"></i>Samarqand shahar 81-maktab</p>
-            <p><i class="fas fa-envelope mr-3"></i>81-maktab.uz</p>
-            <p><i class="fas fa-phone mr-3"></i>+998 99 032 78 98</p>
-            <p><i class="fas fa-print mr-3"></i>+998 99 032 78 98</p>
-          </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
       </div>
+  </div>
+  <!-- Footer End -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Section: Links  -->
-  </footer>
-  <!-- Footer -->
-
-</div>
+    <!-- Template Javascript -->
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
