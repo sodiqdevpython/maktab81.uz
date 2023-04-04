@@ -140,7 +140,6 @@ USE_TZ = True
 #     BASE_DIR / "staticfiles",
 # ]
 
-
 #              Static problem 135 line to 147
 
 import os
