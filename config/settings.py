@@ -164,6 +164,7 @@ USE_TZ = True
 
 import os
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
@@ -174,6 +175,7 @@ if DEBUG:
     ]
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
