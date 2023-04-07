@@ -23,10 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nh=!u8_7h)i^k)f_iomz!guxy(59gr8+*qz6ce#d^+f(=&1!dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = False 
 
-ALLOWED_HOSTS = ['164.90.232.10','www.samshmaktab81.uz','samshmaktab81.uz']
-
+ALLOWED_HOSTS = ['127.0.0.1','164.90.232.10','www.samshmaktab81.uz','samshmaktab81.uz']
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,24 +80,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'namuna',
-        'USER': 'sodiq',
-        'PASSWORD': 'sodiq',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
-#                          For ofline
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'namuna',
+#         'USER': 'sodiq',
+#         'PASSWORD': 'sodiq',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+
+#                          For ofline
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
                         #   For ofline
 
 # Password validation
@@ -174,7 +173,7 @@ USE_TZ = True
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-#          3-marta
+#         
 
 import os
 STATIC_URL = '/static/'
