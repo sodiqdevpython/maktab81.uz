@@ -2,6 +2,12 @@
 {% block title %}{{ post.author.first_name.title }}{% endblock %}
 
 {% block content %}
+    <div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+      <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+    </div>
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+      <div class="spinner"></div>
+    </div>
     <div class="container mt-5">
       <div class="card mb-3 shadow">
         <img height="300px;"; src="{{ i.image_news.url }}"  class="card-img-top" alt="Kechirasiz sizning brauzeringizda muammo bor yoki ushbu rasm admin tomonidan o'chirib yuborilgan">
