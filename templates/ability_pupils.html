@@ -1,57 +1,66 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner"></div>
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner"></div>
+</div>
+<!-- Blog Start -->
+<div class="shadow"
+    style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+    <a href="http://sodiqdev.netlify.app"
+        style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi:
+        <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+</div>
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <h1 class="mb-0">Maktabimizning iqtidorli o'quvchilari</h1>
         </div>
-        <!-- Blog Start -->
-        <div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
-            <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
-        </div>
-        <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                    <h1 class="mb-0">Maktabimizning iqtidorli o'quvchilari</h1>
-                </div>
-                <div class="row g-5">
-                    {% for data in object_list %}
-                        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                            <div class="blog-item bg-light rounded overflow-hidden">
-                                <div class="blog-img position-relative overflow-hidden">
-                                    <img style="max-height: 18rem; min-height: 18rem;" class="img-fluid" src="{{ data.image_pupil.url }}" alt="">
-                                </div>
-                                <div class="p-4">
-                                    <h4 class="mb-3"></h4>
-                                    <p>{{ data.text|slice:50 }} . . .</p>
-                                    <button type="button" class="btn btn-outline-primary mt-1 shadow" data-bs-toggle="modal" data-bs-target="#exampleModal{{ data.pk }}">
-                                        Ko'proq ma'lumot
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal{{ data.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ data.fio }}</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                <img style="max-height: 180px; min-height: 300px;" src="{{ data.image_pupil.url }}" class="card-img-top" alt="...">
-                                <p class="card-text">{{ data.fio }}</p>
-                                <p class="card-text">{{ data.text }}</p>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Orqaga qaytish</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                    
+        <div class="row g-5">
+            {% for data in object_list %}
+            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+                <div class="blog-item bg-light rounded overflow-hidden">
+                    <div class="blog-img position-relative overflow-hidden">
+                        <img style="max-height: 18rem; min-height: 18rem;" class="img-fluid"
+                            src="{{ data.image_pupil.url }}" alt="">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="mb-3"></h4>
+                        <p>{{ data.text|slice:50 }} . . .</p>
+                        <button type="button" class="btn btn-outline-primary mt-1 shadow" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal{{ data.pk }}">
+                            Ko'proq ma'lumot
+                        </button>
+                    </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ data.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ data.fio }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img style="max-height: 180px; min-height: 300px;" src="{{ data.image_pupil.url }}"
+                                class="card-img-top" alt="...">
+                            <p class="card-text">{{ data.fio }}</p>
+                            <p class="card-text">{{ data.text }}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Orqaga
+                                qaytish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
         </div>
-        <!-- Blog Start -->
+    </div>
+</div>
+<!-- Blog Start -->
 {% endblock content %}

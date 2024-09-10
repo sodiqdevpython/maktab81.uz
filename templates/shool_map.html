@@ -1,40 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <!-- Team Start -->
-    <div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
-        <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
-    </div>
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner"></div>
-    </div>
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-      <div class="container py-5">
-          <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-              <h1 class="mb-0">Samarqand shahar 81-maktab</h1>
-          </div>
-          <div class="row g-5">
+<!-- Team Start -->
+<div class="shadow"
+    style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+    <a href="http://sodiqdev.netlify.app/"
+        style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi:
+        <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+</div>
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner"></div>
+</div>
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
+            <h1 class="mb-0">Samarqand shahar 81-maktab</h1>
+        </div>
+        <div class="row g-5">
             {% for i in object_list %}
-              <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-                  <div class="team-item bg-light rounded overflow-hidden shadow">
-                      <div class="team-img position-relative overflow-hidden">
-                          <img class="img-fluid w-100" src="{{ i.img_location.url }}" alt="">
-                          <div class="team-social">
-                              <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.facebook.com/groups/532386137864402"><i class="fab fa-facebook fw-normal"></i></a>
-                              <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://samshmaktab81.uz"><i class="fab fa-chrome fw-normal"></i></a>
-                              <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://t.me/Samsh81maktab"><i class="fab fa-telegram fw-normal"></i></a>
-                          </div>
-                      </div>
-                      <div class="text-center py-4">
-                          <h4 class="text-primary">{{ i.title }}</h4>
-                          <a href="{{ i.url_location }}" class="btn btn-outline-success">360° da ko'rish</a>
-                      </div>
-                  </div>
-              </div>
+            <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+                <div class="team-item bg-light rounded overflow-hidden shadow">
+                    <div class="team-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="{{ i.img_location.url }}" alt="">
+                        <div class="team-social">
+                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://129-school.uz"><i
+                                    class="fab fa-chrome fw-normal"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <h4 class="text-primary">{{ i.title }}</h4>
+                        <a href="{{ i.url_location }}" class="btn btn-outline-success">360° da ko'rish</a>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
-          </div>
-      </div>
-  </div>
-  <!-- Team End -->
+        </div>
+    </div>
+</div>
+<!-- Team End -->
 
 {% endblock content %}

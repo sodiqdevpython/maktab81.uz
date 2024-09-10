@@ -3,25 +3,30 @@
 {% load widget_tweaks %}
 
 {% block content %}
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+<div id="spinner"
+  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
   <div class="spinner"></div>
 </div>
-<div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
-  <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+<div class="shadow"
+  style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+  <a href="http://sodiqdev.netlify.app/"
+    style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi:
+    <span style="color: #ff6600;">Sodiq Oydinov</span></a>
 </div>
 <div class="container mt-5 pt-3 wow zoomIn" data-wow-delay="0.1s">
-     {% block body %}
-        <div class="container py-5 mt-5">
-            <div class="alert alert-success shadow" role="alert">
-              <h4 class="alert-heading">Sizning test natijangiz !</h4>
-              <p>Testlar soni: {{ total_question }}</p>
-                <p>To'g'ri javoblar soni: {{ correct }}</p>
-                <p>Noto'g'ri javoblar soni: {{ wrong }}</p>
-                <p>Siz yig'gan balingiz: {{ total }}% </p>
-              <hr>
-              <p class="mb-0">Sizni tizimdagi o'rningizni ushbu havola orqali bilishingiz mumkin <a href="{% url 'qiuz' %}">Mening reytingim</a></p>
-            </div>
-        </div>
-    {% endblock %}
+  {% block body %}
+  <div class="container py-5 mt-5">
+    <div class="alert alert-success shadow" role="alert">
+      <h4 class="alert-heading">Sizning test natijangiz !</h4>
+      <p>Testlar soni: {{ total_question }}</p>
+      <p>To'g'ri javoblar soni: {{ correct }}</p>
+      <p>Noto'g'ri javoblar soni: {{ wrong }}</p>
+      <p>Siz yig'gan balingiz: {{ total }}% </p>
+      <hr>
+      <p class="mb-0">Sizni tizimdagi o'rningizni ushbu havola orqali bilishingiz mumkin <a
+          href="{% url 'qiuz' %}">Mening reytingim</a></p>
+    </div>
+  </div>
+  {% endblock %}
 </div>
 {% endblock content %}

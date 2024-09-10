@@ -2,55 +2,63 @@
 {% load static %}
 
 {% block content %}
-<div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
-  <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+<div class="shadow"
+  style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+  <a href="http://sodiqdev.netlify.app/"
+    style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi:
+    <span style="color: #ff6600;">Sodiq Oydinov</span></a>
 </div>
-<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+<div id="spinner"
+  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
   <div class="spinner"></div>
 </div>
 <div style="border-radius: 30px;" class="container-fluid shadow py-5 mt-5 wow fadeInUp" data-wow-delay="0.1s">
-    <h2>Testlar ro'yxati</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-        {% for quiz in quizs %}
-            <tbody>
-                <tr>
-                  <td>{{ quiz.title }}</td>
-                    <td><a target="_blank" href="{% url 'result_detail' quiz.id %}">Test natijalari</a></td>
-                    {% if quiz.tugatish %}
-                        <td><!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger shadow" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  To'xtatilgan
-</button>
+  <h2>Testlar ro'yxati</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    {% for quiz in quizs %}
+    <tbody>
+      <tr>
+        <td>{{ quiz.title }}</td>
+        <td><a target="_blank" href="{% url 'result_detail' quiz.id %}">Test natijalari</a></td>
+        {% if quiz.tugatish %}
+        <td><!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-danger shadow" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
+            To'xtatilgan
+          </button>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Mumkin emas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          Kechirasiz ushbu test admin tomonidan to'xtatilgan ! <br> <div class="spinner-grow text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-      </div>
-    </div>
-  </div>
-</div></td>
-                    {% else %}
-                        <td><a href="{% url 'quistion' quiz.id %}" class="btn btn-outline-primary">Qatnashish</a></td>
-                    {% endif %}
-                </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Mumkin emas</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Kechirasiz ushbu test admin tomonidan to'xtatilgan ! <br>
+                  <div class="spinner-grow text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        {% else %}
+        <td><a href="{% url 'quistion' quiz.id %}" class="btn btn-outline-primary">Qatnashish</a></td>
+        {% endif %}
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
 </div>
 {% endblock content %}

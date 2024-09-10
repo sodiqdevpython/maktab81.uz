@@ -3,18 +3,22 @@
 {% load widget_tweaks %}
 
 {% block body %}
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner"></div>
-    </div>
-    <div class="shadow" style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
-        <a href="http://sodiqoydinov.tilda.ws/" style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi: <span style="color: #ff6600;">Sodiq Oydinov</span></a>
-    </div>
-    <h1>Natijalar ro'yxati</h1>
-    <hr>
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner"></div>
+</div>
+<div class="shadow"
+    style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
+    <a href="http://sodiqdev.netlify.app/"
+        style="font-size: 1rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; margin: 0; color: #333;">Dasturchi:
+        <span style="color: #ff6600;">Sodiq Oydinov</span></a>
+</div>
+<h1>Natijalar ro'yxati</h1>
+<hr>
 
 
-    <table class="table">
-        <thead>
+<table class="table">
+    <thead>
         <tr>
             <th scope="col">Ism Familiya</th>
             <th scope="col">Fan nomi</th>
@@ -23,19 +27,19 @@
             <th scope="col">Ball</th>
             <th scope="col">Vaqt</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         {% for result in results %}
-            <tr>
-                <td>{{ result.user.first_name.title }} {{ result.user.last_name.title }}</td>
-                <td>{{ result.quiz.title.title }}</td>
-                <td>{{ result.total_question }}</td>
-                <td>{{ result.corrent_question }}</td>
-                <td>{{ result.total }}</td>
-                <th scope="row">{{ result.create_at|date:'Y-m-d H:i' }}</th>
-            </tr>
+        <tr>
+            <td>{{ result.user.first_name.title }} {{ result.user.last_name.title }}</td>
+            <td>{{ result.quiz.title.title }}</td>
+            <td>{{ result.total_question }}</td>
+            <td>{{ result.corrent_question }}</td>
+            <td>{{ result.total }}</td>
+            <th scope="row">{{ result.create_at|date:'Y-m-d H:i' }}</th>
+        </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
 {% endblock %}
