@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .models import News
 from django.views.generic import ListView, DetailView
+from django.core.paginator import Paginator
 # Create your views here.
 
 class NewsView(ListView):
     model = News
     template_name = 'news.html'
     ordering = ['-id']
+    paginate_by = 5
 
     def form_valid(self, form):
         form.instance.author = self.request.user

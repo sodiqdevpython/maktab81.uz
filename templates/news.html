@@ -8,6 +8,7 @@
 <div class="shadow"
   style="position: fixed; bottom: 0; right: 0; padding: 10px; background-color: #f1f1f1; border-top-left-radius: 10px; box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.2); text-align: right;">
 </div>
+
 {% for i in object_list %}
 <div class="container mt-5 pt-5 wow zoomIn" data-wow-delay="0.5s">
   <div class="card mb-3 shadow">
@@ -21,5 +22,46 @@
   </div>
 </div>
 {% endfor %}
+
+<!-- Bootstrap asosidagi paginatsiya -->
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    {% if is_paginated %}
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page=1" aria-label="Birinchi">
+        <span aria-hidden="true">&laquo;&laquo;</span>
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Oldingi">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+    {% if page_obj.number == num %}
+    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} <li class="page-item"><a
+        class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Keyingi">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Oxirgi">
+          <span aria-hidden="true">&raquo;&raquo;</span>
+        </a>
+      </li>
+      {% endif %}
+      {% endif %}
+  </ul>
+</nav>
 
 {% endblock content %}
