@@ -65,11 +65,12 @@ wheels/
 *.egg-info/ 
 .installed.cfg 
 *.egg 
-*.manifest 
+*.manifest
 *.spec 
-
+.idea
 # Installer logs 
 pip-log.txt 
+media
 pip-delete-this-directory.txt 
 
 # Unit test / coverage reports 

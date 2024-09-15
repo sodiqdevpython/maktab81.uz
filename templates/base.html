@@ -13,8 +13,7 @@
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="icon" href="https://png.pngtree.com/element_our/png_detail/20181129/male-student-icon-png_251938.jpg"
-    sizes="32x32" type="image/png">
+  <link rel="icon" href="https://trm.uz/assets/logo-COWs5_wi.svg" sizes="32x32" type="image/svg">
   <link rel="manifest" href="https://getbootstrap.com/docs/5.3/assets/img/favicons/manifest.json">
   <meta name="theme-color" content="#712cf9">
   <link
@@ -159,16 +158,6 @@
     }
   }
 
-  .wave {
-    margin-top: 1px;
-    margin-left: 20px;
-    font-size: 20px;
-    color: black;
-    -webkit-box-reflect;
-    below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
-    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3),
-      0px -4px 10px rgba(255, 255, 255, 0.3);
-  }
 
   .wave span {
     font-family: "Alfa Slab One", cursive;
@@ -177,18 +166,7 @@
     animation-delay: calc(0.1s * var(--item));
   }
 
-  @keyframes wave-anim {
 
-    0%,
-    40%,
-    100% {
-      transform: translateY(0);
-    }
-
-    20% {
-      transform: translateY(-20px);
-    }
-  }
 
   base {
     /* Created with https://www.css-gradient.com */
@@ -201,8 +179,6 @@
   .wrapper {
     margin: 10vh
   }
-
-  //post card styles
 
   .card {
     border: none;
@@ -300,7 +276,8 @@
     {% else %}
     <a class="navbar-brand" href="{% url 'home' %}">
       <div style="color: white;" class="wave">
-        <span style="--item:1">1</span>
+        <span>129-MAKTAB</span>
+        <!-- <span style="--item:1">1</span>
         <span style="--item:2">2</span>
         <span style="--item:3">9</span>
         <span style="--item:4">-</span>
@@ -309,7 +286,7 @@
         <span style="--item:7">K</span>
         <span style="--item:8">T</span>
         <span style="--item:9">A</span>
-        <span style="--item:10">B</span>
+        <span style="--item:10">B</span> -->
       </div>
     </a>
     {% endif %}
@@ -369,10 +346,6 @@
                 <i class="bi bi-telegram text-primary me-2"></i>
                 <p class="mb-0"><a href="{{ contact.school_tme }}">Telegram</a></p>
               </div>
-              <div class="d-flex mb-2">
-                <i class="bi bi-telephone text-primary me-2"></i>
-                <p class="mb-0"><a href="tel:{{ contact.school_tel }}">{{ contact.school_tel }}</a></p>
-              </div>
               <div class="d-flex mt-4">
                 <a class="btn btn-primary btn-square me-2" href="{{ contact.school_facebook }}"><i
                     class="fab fa-facebook-f fw-normal"></i></a>
@@ -401,8 +374,6 @@
                     class="bi bi-arrow-right text-primary me-2"></i>Iqtidorli o'quvchilar</a>
                 <a class="text-light mb-2" href="{% url 'qiuz' %}"><i
                     class="bi bi-arrow-right text-primary me-2"></i>Testlar</a>
-                <a class="text-light" href="https://abt.uz/university"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Oliygohlar</a>
               </div>
             </div>
             <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -410,22 +381,20 @@
                 <h3 class="text-light mb-0">Fanlar</h3>
               </div>
               <div class="link-animated d-flex flex-column justify-content-start">
-                <a class="text-light mb-2" href="https://abt.uz/matematika-mavzulari"><i
+                <a class="text-light mb-2" href="https://t.me/trm_metodika_uz/2"><i
                     class="bi bi-arrow-right text-primary me-2"></i>Matematika</a>
-                <a class="text-light mb-2" href="https://abt.uz/fizika-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Fizika</a>
-                <a class="text-light mb-2" href="https://abt.uz/ingliz-tili-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Ingiliz tili</a>
-                <a class="text-light mb-2" href="https://abt.uz/biologiya-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Biologiya</a>
-                <a class="text-light mb-2" href="https://abt.uz/kimyo-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Kimyo</a>
-                <a class="text-light" href="https://abt.uz/tarix-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Tarix</a>
-                <a class="text-light" href="https://abt.uz/rus-tili-va-adabiyoti-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>Rus tili</a>
-                <a class="text-light" href="https://abt.uz/o-zbek-tili-va-adabiyoti-mavzulari"><i
-                    class="bi bi-arrow-right text-primary me-2"></i>O'zbek tili</a>
+                <a class="text-light mb-2" href="https://t.me/trm_metodika_uz/3"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>Ona tili</a>
+                <a class="text-light mb-2" href="https://t.me/trm_metodika_uz/17"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>Texnalogiya</a>
+                <a class="text-light mb-2" href="https://t.me/trm_metodika_uz/5"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>Tabiiy fanlar</a>
+                <a class="text-light mb-2" href="https://t.me/trm_metodika_uz/18"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>Informatika va AT</a>
+                <a class="text-light" href="https://t.me/trm_metodika_uz/6"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>Tarbiya</a>
+                <a class="text-light" href="https://t.me/trm_metodika_uz/27"><i
+                    class="bi bi-arrow-right text-primary me-2"></i>4K modeli</a>
               </div>
             </div>
           </div>
