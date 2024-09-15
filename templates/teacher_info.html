@@ -13,7 +13,8 @@
       <div class="container-fluid">
         <form method="post" action="{% url 'search_teacher' %}" method="get" class="d-flex" role="search">
           {% csrf_token %}
-          <input class="form-control me-2" name="search" type="search" placeholder="Qidiruv" aria-label="Search">
+          <input class="form-control me-2 border-0" name="search" type="search" placeholder="Qidiruv"
+            aria-label="Search">
           <button class="btn btn-outline-primary" type="submit">Qidirish</button>
         </form>
       </div>

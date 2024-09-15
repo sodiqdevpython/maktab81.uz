@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nh=!u8_7h)i^k)f_iomz!guxy(59gr8+*qz6ce#d^+f(=&1!dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
 # Application definition
@@ -77,16 +77,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'maktabdb',
-        'USER': 'maktabuser',
-        'PASSWORD': 'yourpassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'maktabdb',
+#         'USER': 'maktabuser',
+#         'PASSWORD': 'yourpassword',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
@@ -107,12 +107,12 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
 # }
 
 #                          For ofline
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
                         #   For ofline
 
 # Password validation
