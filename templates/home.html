@@ -313,11 +313,6 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            {% if user.is_authenticated %}
-            <a href="{% url 'home' %}" class="navbar-brand p-0">
-                <h3 style="color: #06A3DA;" class="m-0"><i class="fa fa-user-tie me-2"></i>{{ user.first_name }}</h3>
-            </a>
-            {% else %}
             <a class="navbar-brand" href="{% url 'home' %}">
                 <div style="color: #06A3DA;" class="">
                     <span style="text-transform: uppercase; font-size: 22px;">Toshkent shahri, Uchtepa tumani,<br />
@@ -325,7 +320,6 @@
                         maktab</span>
                 </div>
             </a>
-            {% endif %}
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>

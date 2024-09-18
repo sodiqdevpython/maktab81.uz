@@ -77,6 +77,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
+
+
+# Database
+# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -87,24 +95,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-DATA_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
-FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
-
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'namuna',
-#         'USER': 'sodiq',
-#         'PASSWORD': 'sodiq',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
 
 #                          For ofline
 # DATABASES = {
