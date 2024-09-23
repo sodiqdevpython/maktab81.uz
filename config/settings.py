@@ -84,25 +84,45 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'maktabdb',
-        'USER': 'maktabuser',
-        'PASSWORD': 'yourpassword',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
 }
 
-#                          For ofline
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'maktabdb',
+            'USER': 'maktabuser',
+            'PASSWORD': 'yourpassword',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+
+# if DEBUG: 
 # DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 # }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'maktabdb',
+#             'USER': 'maktabuser',
+#             'PASSWORD': 'yourpassword',
+#             'HOST': 'localhost',
+#             'PORT': '5432',
+#         }
+#     }
+
+#                          For ofline
+
                         #   For ofline
 
 # Password validation
@@ -127,7 +147,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'UZ'
 
 TIME_ZONE = 'Asia/Tashkent'
 

@@ -286,9 +286,9 @@
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i><a
-                            href="https://maps.app.goo.gl/cPPDqC3khAH12meHA">Toshkent shahari Uchtepa tumani
-                            129-maktab</a></small>
+                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i><a class="text-light"
+                            href="https://maps.app.goo.gl/cPPDqC3khAH12meHA">Toshkent shahar, Uchtepa tumani,
+                            <br />129-sonli umumiy oʻrta taʼlim maktabi</a></small>
                     <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>{{ contact.school_tel }}</small>
                     <small class="text-light"><i class="fa fa-envelope-open me-2"></i>{{ contact.school_email }}</small>
                 </div>
@@ -313,13 +313,14 @@
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
         <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <div style="color: #06A3DA;" class="">
-                    <span style="text-transform: uppercase; font-size: 22px;">Toshkent shahri, Uchtepa tumani,<br />
-                        129-sonli
-                        maktab</span>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Toshkent shahar, Uchtepa tumani,<br />129-sonli
+                        umumiy oʻrta taʼlim maktabi</a>
                 </div>
-            </a>
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
@@ -358,18 +359,17 @@
                 </div>
             </div>
         </nav>
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="header-carousel" style="height: 65vh;" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 {% for slider in news %}
                 {% if forloop.first %}
                 <div class="carousel-item active size_item">
-                    <img style="height: 550px;" class="standart_image d-block w-100 " src="{{ slider.image_news.url }}"
-                        alt="Image">
+                    <img class="standart_image d-block w-100" style="height: 550px; object-fit: cover;"
+                        src="{{ slider.image_news.url }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
                             <p class="lead text-white animated zoomIn">{{ slider.title }}</p>
-                            <h3 style="color: #06A3DA;" class="text-end animated zoomIn">So'nggi yangiliklar</h3>
                             <a href="{% url 'news_detail' slider.pk %}"
                                 class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Ko'proq ma'lumot</a>
                         </div>
@@ -377,12 +377,12 @@
                 </div>
                 {% else %}
                 <div class="carousel-item size_item">
-                    <img style="height: 550px;" class="d-block w-100 " src="{{ slider.image_news.url }}" alt="Image">
+                    <img class="d-block w-100" style="height: 550px; object-fit: cover;"
+                        src="{{ slider.image_news.url }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
                             <p class="lead text-white animated zoomIn">{{ slider.title }}</p>
-                            <h3 style="color: #06A3DA;" class="text-end animated zoomIn">So'nggi yangiliklar</h3>
                             <a href="{% url 'news_detail' slider.pk %}"
                                 class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Ko'proq ma'lumot</a>
                         </div>
@@ -390,7 +390,6 @@
                 </div>
                 {% endif %}
                 {% endfor %}
-
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -401,6 +400,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+
     </div>
     <!-- Navbar & Carousel End -->
 
@@ -565,6 +565,57 @@
         {% endfor %}
 
         <hr class="featurette-divider">
+        <h2 style="color: #091e3e;">Ko'p beriladigan savollar</h2>
+
+        {% for f in faq %}
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                {% if forloop.first %}
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                    aria-expanded="false" aria-controls="collapseTwo">
+                    {{ f.title }}
+                </button>
+                {% else %}
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    {{ f.title }}
+                </button>
+                {% endif %}
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    {{ f.body }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="container mt-5 py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <form method="post" action="{% url 'post_message' %}">
+            {% csrf_token %}
+            <h2>Murojat uchun</h2>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Ism</label>
+                <input name="fio" type="text" class="form-control" id="exampleFormControlInput1" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Telefon raqam</label>
+                <input name="tel_number" maxlength="13" type="text" class="form-control" id="exampleFormControlInput1"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Xabar</label>
+                <textarea required name="body" maxlength="1024" class="form-control" id="exampleFormControlTextarea1"
+                    rows="4"></textarea>
+            </div>
+            <input type="submit" value="Yuborish" class="btn btn-primary">
+        </form>
+    </div>
+
+
+    </div>
     </div>
 
     <!-- Footer Start -->

@@ -9,7 +9,7 @@ class SchoolData(models.Model):
         verbose_name_plural = "Maktab statistikasi"
 
 class MoreInformation(models.Model):
-    data_title = models.CharField(max_length=30, verbose_name="Ma'lumot mavzusi: ")
+    data_title = models.CharField(max_length=256, verbose_name="Ma'lumot mavzusi: ")
     data_body = models.TextField(verbose_name="Ma'lumot haida to'liq xabar:", validators=[MaxLengthValidator(1000, message="Xato sizning kiritgan ma'lumotlaringiz 1000 ta belgidan oshib ketdi kamaytiring bo'lmasa bu xato sayt dizayniga ta'sir qiladi")])
     data_image = models.ImageField(upload_to='images/', verbose_name="Ma'lumot haqida rasm kiriting")
     def __str__(self):
@@ -33,3 +33,27 @@ class SchoolContact(models.Model):
     class Meta:
         verbose_name = "Bog'lanish uchun"
         verbose_name_plural = "Bog'lanish uchun"
+
+class Contact(models.Model):
+    fio = models.CharField(max_length=128)
+    tel_number = models.CharField(max_length=14)
+    body = models.TextField(max_length=2048)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.fio[:10]
+
+    class Meta:
+        verbose_name = "Izoh"
+        verbose_name_plural = "Izohlar"
+
+class FAQ(models.Model):
+    title = models.CharField(max_length=256, unique=True)
+    body = models.TextField()
+
+    def __str__(self):
+        return self.title[:10]
+
+    class Meta:
+        verbose_name = "Ko'p berilgan savol"
+        verbose_name_plural = "Ko'p berilgan savollar"
