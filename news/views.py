@@ -8,7 +8,7 @@ class NewsView(ListView):
     model = News
     template_name = 'news.html'
     ordering = ['-id']
-    paginate_by = 5
+    paginate_by = 4
 
     def form_valid(self, form):
         form.instance.author = self.request.user
