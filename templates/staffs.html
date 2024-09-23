@@ -12,7 +12,8 @@
 <div class="container-fluid py-5 wow zoomIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-            <h1 class="mb-0">Toshkent shahar 129-maktab rahbariyati</h1>
+            <h1 class="mb-0 mt-5">Maktab rahbariyati
+            </h1>
         </div>
         <div class="row g-5">
             {% for i in object_list %}
@@ -21,15 +22,11 @@
                     <div class="team-img position-relative overflow-hidden">
                         <img style="max-height: 18rem; min-height: 18rem;" class="img-fluid w-100"
                             src="{{ i.img_person.url }}" alt="Brauzeringizda muammo bor !">
-                        <div class="team-social">
-                            <a class="btn btn-lg btn-primary btn-lg-square rounded" href="{{ i.web_url }}"><i
-                                    class="fab fa-chrome fw-normal"></i></a>
-                        </div>
+
                     </div>
                     <div class="text-center py-4">
-                        <h4 class="text-primary">{{ i.fio }}</h4>
+                        <h5 class="text-primary">{{ i.fio }}</h5>
                         <p class="lead">{{ i.person }}</p>
-                        <a href="{{ i.web_url }}" class="btn btn-outline-info">Aloqaga chiqish</a>
                     </div>
                 </div>
             </div>

@@ -19,9 +19,7 @@ class SchoolStaffs(models.Model):
     fio = models.CharField(max_length=50, verbose_name="To'liq ismi: ")
     person = models.CharField(max_length=80, verbose_name="Ko'proq ma'lumot: ", help_text="Masalan: 81-maktab direktori Oloviddin Ochilov")
     img_person = models.ImageField(null=False, blank=False, upload_to='images/', verbose_name='Rasm: ')
-    web_url = models.URLField(verbose_name="Bog'lanish uchun silkani kiriting", help_text="Agar ushbu odamning veb sahifasi yo'q bo'lsa buni kiriting: https://samshmaktab81.uz")
-
-
+   
     def __str__(self):
         return self.fio
 
