@@ -16,22 +16,25 @@
         </div>
         <div class="row g-5">
             {% for data in object_list %}
-            <div class="col-lg-3 wow slideInUp" data-wow-delay="0.3s">
-                <div class="blog-item bg-light rounded overflow-hidden">
+            <div class="col-lg-3 d-flex align-items-stretch wow slideInUp" data-wow-delay="0.3s">
+                <div class="blog-item bg-light rounded overflow-hidden w-100 d-flex flex-column">
                     <div class="blog-img position-relative overflow-hidden">
-                        <img style="max-height: 18rem; min-height: 18rem;" class="img-fluid"
+                        <img style="max-height: 18rem; min-height: 18rem;" class="img-fluid w-100"
                             src="{{ data.image_pupil.url }}" alt="">
                     </div>
-                    <div class="p-4">
-                        <h4 class="mb-3"></h4>
+                    <div class="p-4 d-flex flex-column flex-grow-1">
+                        <h4 class="mb-3">{{ data.fio }}</h4>
                         <p>{{ data.text|slice:50 }} . . .</p>
-                        <button type="button" class="btn btn-outline-primary mt-1 shadow" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal{{ data.pk }}">
-                            Ko'proq ma'lumot
-                        </button>
+                        <div class="mt-auto"> <!-- Tugma joylashishi uchun yangi div -->
+                            <button type="button" class="btn btn-outline-primary mt-1 shadow" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{ data.pk }}">
+                                Ko'proq ma'lumot
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal{{ data.pk }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -42,8 +45,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img style="max-height: 180px; min-height: 300px;" src="{{ data.image_pupil.url }}"
-                                class="card-img-top" alt="...">
                             <p class="card-text">{{ data.fio }}</p>
                             <p class="card-text">{{ data.text }}</p>
                         </div>
@@ -54,9 +55,10 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
 
+            {% endfor %}
         </div>
+
     </div>
 </div>
 <!-- Blog Start -->

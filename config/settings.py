@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nh=!u8_7h)i^k)f_iomz!guxy(59gr8+*qz6ce#d^+f(=&1!dc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['164.90.198.153', '129-school.uz', 'www.129-school.uz', '127.0.0.1']
 # Application definition
@@ -84,23 +84,23 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 52428800  # 50MB
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
-
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'maktabdb',
-            'USER': 'maktabuser',
-            'PASSWORD': 'yourpassword',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'db.sqlite3',
+   }
+}
+
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'maktabdb',
+#             'USER': 'maktabuser',
+#             'PASSWORD': 'yourpassword',
+#             'HOST': 'localhost',
+#             'PORT': '5432',
+#         }
+#     }
 
 # if DEBUG: 
 # DATABASES = {
