@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Spinner -->
 <div id="spinner"
   class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
   <div class="spinner"></div>
@@ -15,8 +16,10 @@
   <!-- News Cards Grid -->
   <div class="row" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
     {% for i in object_list %}
-    <div class="col-lg-4 col-md-4 mb-4" style="padding-right: 15px; padding-left: 15px; box-sizing: border-box;">
-      <div class="card h-100 shadow-lg border-0" style="border-radius: 12px;">
+    <div class="col-lg-4 col-md-6 mb-4 d-flex align-items-stretch"
+      style="padding-right: 15px; padding-left: 15px; box-sizing: border-box;">
+      <div class="card h-100 shadow-lg border-0"
+        style="border-radius: 12px; display: flex; flex-direction: column; width: 100%; box-sizing: border-box;">
         <a href="{% url 'news_detail' i.pk %}">
           <img src="{{ i.image_news.url }}" class="card-img-top img-fluid"
             style="height: 180px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px;"
@@ -25,8 +28,8 @@
         <div class="card-body d-flex flex-column p-3">
           <h5 class="card-title text-dark">{{ i.title|truncatewords:5 }}</h5>
           <p class="card-text text-muted">{{ i.body|safe|truncatewords:12 }}</p>
-          <a href="{% url 'news_detail' i.pk %}" class="btn btn-primary mt-auto" style="border-radius: 20px;">Batafsil
-            o'qish</a>
+          <a href="{% url 'news_detail' i.pk %}" class="btn btn-primary mt-auto"
+            style="border-radius: 20px; margin-top: auto;">Batafsil o'qish</a>
         </div>
         <div class="card-footer text-muted p-2">
           <small>{{ i.date }}</small>
@@ -35,7 +38,6 @@
     </div>
     {% endfor %}
   </div>
-
 
   <!-- Pagination -->
   <nav aria-label="Page navigation" class="mt-4">
@@ -79,4 +81,10 @@
   </nav>
 </div>
 
+<script>
+  // Spinnerni sahifa yuklangandan keyin yashirish
+  window.addEventListener('load', function () {
+    document.getElementById('spinner').style.display = 'none';
+  });
+</script>
 {% endblock content %}
