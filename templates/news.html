@@ -15,7 +15,7 @@
   <!-- News Cards Grid -->
   <div class="row" style="display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px;">
     {% for i in object_list %}
-    <div class="col-lg-3 col-md-6 mb-4" style="padding-right: 15px; padding-left: 15px; box-sizing: border-box;">
+    <div class="col-lg-4 col-md-4 mb-4" style="padding-right: 15px; padding-left: 15px; box-sizing: border-box;">
       <div class="card h-100 shadow-lg border-0" style="border-radius: 12px;">
         <a href="{% url 'news_detail' i.pk %}">
           <img src="{{ i.image_news.url }}" class="card-img-top img-fluid"
@@ -35,6 +35,7 @@
     </div>
     {% endfor %}
   </div>
+
 
   <!-- Pagination -->
   <nav aria-label="Page navigation" class="mt-4">
