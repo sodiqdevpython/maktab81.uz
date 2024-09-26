@@ -10,6 +10,7 @@ class ViewSchool(ListView):
 class SchoolStaffsView(ListView):
     model = SchoolStaffs
     template_name = 'staffs.html'
+    ordering = ['id']
 
 class AbilityPupilsView(ListView):
     model = AbilityPupils
